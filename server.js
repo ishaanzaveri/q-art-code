@@ -18,62 +18,9 @@ const app = express();
 
 app.use(express.json())
 
-// app.get('/api/customers', (req,res) => {
-//     const cust = [
-//         {id: 1, firstName: "Ishaan", lastName: "Zaveri"},
-//         {id: 2, firstName: "Pankaj", lastName: "Meghani"},
-//         {id: 3, firstName: "Clayton", lastName: "Dunavant"},
-//         {id: 4, firstName: "Rebecca", lastName: "Williams"}
-//     ];
-//     res.json(cust);
-// }); // for initial testing
-
-// const initialUrl = {
-//     url: UUID.create().toString(),
-//     question : "Draw a Bird",
-// }
-// console.log(initialUrl);
-
-// const makeInitialUser = async() => {
-//     try {
-//         await urlSchema.create(initialUrl);
-//     } catch (e) {
-//         console.error(e.message);
-//     }
-
-// }
-
-// makeInitialUser();
-
-// const testing = async () => {
-//     const res = await urlSchema.find();
-//     console.log(res);
-// }
-
-// testing()
-
 // Routes 
-
-//  URLs 
-app.get('/api/qurl', async (req, res) => {
-    res.send(await urlSchema.find());
-})
-
-app.post('/api/qurl', async(req, res) => {
-    // console.log(req.body);
-    let newUrl = {
-        url : req.body.url,
-        question : req.body.question
-    };
-    console.log(newUrl);
-    try {
-        await urlSchema.create(newUrl);
-    } catch (e) {
-        console.error(e.message);
-    }
-    res.json(await urlSchema.find());
-})
-
+const qurlRouter = require('./routes/urlRoutes');
+app.use("/api/qurl", qurlRouter);
 
 const port = 3001;
 
