@@ -4,12 +4,15 @@ const urlSchema = require('./model/urls');
 const imageSchema = require('./model/images');
 const UUID = require('uuid-js');
 
+// Add the mongoose connect line 
     console.log("Connected to the database")
 }).catch((e) => {
     console.error(e.message)
 });
 
 const app = express();
+
+app.use(express.json())
 
 // app.get('/api/customers', (req,res) => {
 //     const cust = [
@@ -44,6 +47,29 @@ const app = express();
 // }
 
 // testing()
+
+// Routes 
+
+//  URLs 
+app.get('/api/qurl', async (req, res) => {
+    res.send(await urlSchema.find());
+})
+
+app.post('/api/qurl', async(req, res) => {
+    // console.log(req.body);
+    let newUrl = {
+        url : req.body.url,
+        question : req.body.question
+    };
+    console.log(newUrl);
+    try {
+        await urlSchema.create(newUrl);
+    } catch (e) {
+        console.error(e.message);
+    }
+    res.json(await urlSchema.find());
+})
+
 
 const port = 3001;
 
