@@ -4,15 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const DATA = [
-  { id: "question-0", name: "What's a New Years resolution of yours?" },
-  { id: "question-1", name: "Draw your best bird!" },
-];
+// const DATA = [
+//   { id: "question-0", name: "What's a New Years resolution of yours?" },
+//   { id: "question-1", name: "Draw your best bird!" },
+// ];
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App questions={DATA}/>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

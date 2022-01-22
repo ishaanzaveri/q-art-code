@@ -6,6 +6,9 @@ const db = require('config').get("db");
 const UUID = require('uuid-js');
 const req = require('express/lib/request');
 
+const morgan = require('morgan')
+const cors = require('cors')
+
 // Add the mongoose connect line 
 // console.log(db);
 mongoose.connect(db).then(() => {
@@ -16,6 +19,8 @@ mongoose.connect(db).then(() => {
 
 const app = express();
 
+app.use(cors())
+app.use(morgan('tiny'))
 app.use(express.json())
 
 // Routes 
