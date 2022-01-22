@@ -17,4 +17,4 @@ const imageSchema = new mongoose.Schema({
     } 
 })
 
-module.exports = mongoose.model('images', shortUrlSchema);
+module.exports = mongoose.model('images', imageSchema);
