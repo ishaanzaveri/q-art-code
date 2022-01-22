@@ -4,9 +4,9 @@ import Iframe from 'react-iframe'
 import "./ImageGrid.css"
 
 export default () => {
-    const ref = useRef()
+    // const ref = useRef()
 
     return (
-        <Iframe url="./grid.html" width='512px' height='512px' frameBorder={0} id="frame" ref={ref} />
+        <Iframe url="./grid.html" width='512px' height='512px' frameBorder={0} id="frame" />
     )
 }

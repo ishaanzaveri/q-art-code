@@ -28,7 +28,7 @@ function App() {
             <button onClick={() => {
                 var img = ref.current.export()
                 console.log(img)
-            }}>Submit</button>
+            }} className='btn btn__primary btn__lg'>Submit</button>
         </div>
     );
 }

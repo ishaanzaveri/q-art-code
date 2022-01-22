@@ -39,11 +39,9 @@ function App() {
       </ul>
     </div>
 
-    <div className="App">
-      <div className='App-header'>
-        <ImageGrid />
-      </div>
-    </div>
+    <DrawCanvas/>
+    <ImageGrid />
+    
     </>
   )
 }
