@@ -1,4 +1,11 @@
 const express = require('express');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb+srv://q-art-code:q-art-code@cluster0.mfjdt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority').then(() => {
+    console.log("Connected to the database")
+}).catch((e) => {
+    console.error(e.message)
+});
 
 const app = express();
 
