@@ -12,6 +12,8 @@ mongoose.connect("mongodb+srv://q-art-code:EWNwpl7sf42ywZvl@cluster0.mfjdt.mongo
 
 const app = express();
 
+app.use(express.json())
+
 // app.get('/api/customers', (req,res) => {
 //     const cust = [
 //         {id: 1, firstName: "Ishaan", lastName: "Zaveri"},
@@ -45,6 +47,29 @@ const app = express();
 // }
 
 // testing()
+
+// Routes 
+
+//  URLs 
+app.get('/api/qurl', async (req, res) => {
+    res.send(await urlSchema.find());
+})
+
+app.post('/api/qurl', async(req, res) => {
+    // console.log(req.body);
+    let newUrl = {
+        url : req.body.url,
+        question : req.body.question
+    };
+    console.log(newUrl);
+    try {
+        await urlSchema.create(newUrl);
+    } catch (e) {
+        console.error(e.message);
+    }
+    res.json(await urlSchema.find());
+})
+
 
 const port = 3001;
 
