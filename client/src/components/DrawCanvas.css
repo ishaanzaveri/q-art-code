@@ -1,0 +1,8 @@
+.circle-picker {
+    justify-content: space-around;
+    margin: 10px 0 0 0 !important;
+}
+
+.circle-picker span div span div {
+    border: 1px solid #999;
+}
