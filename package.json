@@ -23,6 +23,7 @@
   "dependencies": {
     "concurrently": "^7.0.0",
     "debug": "^4.3.3",
+    "config": "^3.3.7",
     "express": "^4.17.2",
     "mongoose": "^6.1.7",
     "uuid-js": "^0.7.5"
