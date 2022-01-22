@@ -7,7 +7,7 @@ const UUID = require('uuid-js');
 const req = require('express/lib/request');
 
 // Add the mongoose connect line 
-console.log(db);
+// console.log(db);
 mongoose.connect(db).then(() => {
     console.log("Connected to the database")
 }).catch((e) => {
