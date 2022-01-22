@@ -2,7 +2,8 @@ import './App.css';
 import Prompts from "./components/Prompts";
 import NewQuestion from "./components/NewQuestion";
 import { useEffect, useState } from 'react';
-
+import DrawCanvas from './components/DrawCanvas'
+import ImageGrid from './components/ImageGrid';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
 
 
   return (
+    <>
     <div className="qartcode stack-large">
       <h1>q-art-code</h1>
       <NewQuestion />
@@ -39,7 +41,14 @@ function App() {
       { questionList }
       </ul>
     </div>
-  );
+
+    <div className="App">
+      <div className='App-header'>
+        <ImageGrid />
+      </div>
+    </div>
+    </>
+  )
 }
 
 
