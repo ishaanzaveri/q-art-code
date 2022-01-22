@@ -26,8 +26,8 @@ function App() {
 
 
             <button onClick={() => {
-                // var img = ref.current.getDataURL('svg');
-                // console.log(img)
+                var img = ref.current.export()
+                console.log(img)
             }}>Submit</button>
         </div>
     );
