@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 export default function Prompts(param) {
   const [viewer, setViewer] = useState(param.name)
+  const [url, setUrl] = useState(param.url);
   const [word, setWord] = useState("");
   const [size, setSize] = useState(200);
   const [qrCode, setQrCode] = useState("");
@@ -10,12 +11,13 @@ export default function Prompts(param) {
 
   useEffect(() => {
 	setQrCode
-(`http://api.qrserver.com/v1/create-qr-code/?data=${word}!&size=${size}x${size}`);
+(`http://api.qrserver.com/v1/create-qr-code/?data=${word}&size=${size}x${size}&charset-source="UTF-8"`);
 }, [word, size]);
 
   function handleViewing(e) {
     e.preventDefault();
-    setWord(viewer);
+    console.log(window.location + url);
+    setWord(window.location + url);
     setIsOpened(wasOpened => !wasOpened);
     //alert(viewer)
   }
@@ -32,11 +34,11 @@ export default function Prompts(param) {
         console.log('Success:' , data)
       })
       .catch((error) => {
-        
+
         console.error('Error:' , error)
-        
+
       })
-    
+
   }
 
   function handleComposite(e) {
