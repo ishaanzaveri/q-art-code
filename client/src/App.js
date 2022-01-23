@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      {/* <div className="qartcode stack-large">
+      <div className="qartcode stack-large">
         <h1>q-art-code</h1>
         <NewQuestion updateList={updateList} />
         <h2 id="list-heading">
@@ -41,7 +41,7 @@ function App() {
             />
           ))}
         </ul>
-      </div> */}
+      </div>
 
       <div className="App">
         <DrawCanvas url={"398d0596-0b3c-4502-80d5-409a91c9cf49"} />
