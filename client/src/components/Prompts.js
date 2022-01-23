@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ImageGrid from './ImageGrid';
 import QRCode from "react-qr-code";
+import { Link } from 'react-router-dom';
 
 export default function Prompts(param) {
   const [viewer, setViewer] = useState(param.name)
@@ -83,7 +84,7 @@ export default function Prompts(param) {
 
       </div>
       {/* {isOpened && <img className="photo" src={qrCode} alt="" />} */}
-      {isOpened && <QRCode value={word} /> }
+      {isOpened && <Link to={param.url + "/edit"}><QRCode value={word} /></Link> }
       <div className="finalIMG-display">
         {showFinal && <div className='photo'>
           <ImageGrid id={url} />
