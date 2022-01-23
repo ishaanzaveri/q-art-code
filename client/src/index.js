@@ -4,7 +4,8 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  useParams
+  useParams,
+  HashRouter
 } from "react-router-dom"
 import './index.css';
 import App from './App';
@@ -18,13 +19,13 @@ console.log(window.React1 === window.React2);
 
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter>
     <Routes>
       <Route path="/" element={<App />} />
       <Route path=":id/edit" element={<DrawCanvas />} />
       <Route path=":id/result" element={<ImageGrid />} />
     </Routes>
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById('root')
 );
 

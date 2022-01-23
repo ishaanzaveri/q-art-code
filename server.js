@@ -9,6 +9,7 @@ require('dotenv').config()
 
 const morgan = require('morgan')
 const cors = require('cors')
+const path = require('path')
 
 // Add the mongoose connect line 
 // console.log(db);
@@ -30,6 +31,9 @@ const image_router = require('./routes/image_router')
 app.use("/api/qurl", qurlRouter);
 app.use('/api/images/', image_router)
 app.use('/', express.static('client/build'))
+app.use('*', (req, res, next) => {
+    res.sendFile(path.join(__dirname, 'client', build))
+})
 
 const port = process.env.PORT || 3001;
 
