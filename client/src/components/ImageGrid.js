@@ -5,7 +5,7 @@ import { useParams } from 'react-router'
 import "./ImageGrid.css"
 
 export default (params) => {
-    const url = `http://localhost:3001/api/images/${params.id || useParams().id}`
+    const url = `https://qr-art-code.herokuapp.com/api/images/${params.id || useParams().id}`
     console.log(url)
 
 
