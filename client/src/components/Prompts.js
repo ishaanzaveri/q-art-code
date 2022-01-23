@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 
 export default function Prompts(param) {
   const [viewer, setViewer] = useState(param.name)
+  const [word, setWord] = useState("");
+  const [size, setSize] = useState(200);
+  const [qrCode, setQrCode] = useState("");
+  const [isOpened, setIsOpened] = useState(false);
+
+  useEffect(() => {
+	setQrCode
+(`http://api.qrserver.com/v1/create-qr-code/?data=${word}!&size=${size}x${size}`);
+}, [word, size]);
 
   function handleViewing(e) {
     e.preventDefault();
-    alert(viewer)
+    setWord(viewer);
+    setIsOpened(wasOpened => !wasOpened);
+    //alert(viewer)
   }
 
   function handleDeletion(e) {
@@ -31,6 +42,11 @@ export default function Prompts(param) {
     
   }
 
+  function handleComposite(e) {
+    e.preventDefault();
+    alert("img")
+  }
+
   return (
     <li className="question stack-small">
       <div className="c-cb">
@@ -42,9 +58,19 @@ export default function Prompts(param) {
         <button
           type="button"
           className="btn"
-          onClick={handleViewing}>
-          View
+          onClick={handleViewing}
+        >
+          Toggle QR View
         </button>
+
+        <button
+          type="button"
+          className="btn"
+          onClick={handleComposite}
+        >
+          Final Image
+        </button>
+
         <button
           type="button"
           className="btn btn__danger"
@@ -52,6 +78,11 @@ export default function Prompts(param) {
         >
           Delete
         </button>
+
+      </div>
+      {isOpened && <img src={qrCode} alt="" />}
+      <div className="finalIMG-display">
+
       </div>
     </li>
   );
