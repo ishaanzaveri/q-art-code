@@ -20,7 +20,7 @@ export default function Prompts(param) {
   function handleViewing(e) {
     e.preventDefault();
     console.log(window.location + url);
-    setWord(window.location + url + "/#/edit");
+    setWord(window.location + '#/' + url + "/edit");
     setIsOpened(wasOpened => !wasOpened);
     //alert(viewer)
   }
