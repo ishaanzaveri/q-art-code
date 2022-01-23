@@ -24,8 +24,8 @@ const Board = forwardRef((props, ref) => {
         canvCtx.fillRect(0, 0, canv.width, canv.height);
         setCtx(canvCtx);
 
-        let offset = canv.getBoundingClientRect();
-        setCanvasOffset({ x: parseInt(offset.left), y: parseInt(offset.top) });
+        // let offset = canv.getBoundingClientRect();
+        setCanvasOffset({ x: parseInt(canv.offsetLeft), y: parseInt(canv.offsetTop) });
     }, [ctx]);
 
     useEffect(() => {
@@ -35,7 +35,10 @@ const Board = forwardRef((props, ref) => {
     }, [size])
 
     function handleMouseDown(e) {
-        // console.log(((e.touches == undefined) ? e.clientX : e.touches[0].clientX), canvasOffset.x)
+        console.log(((e.touches == undefined) ? e.clientX : e.touches[0].clientX), canvasOffset.x)
+        console.log(((e.touches == undefined) ? e.clientY : e.touches[0].clientY), canvasOffset.y)
+        // console.log(e.clientY)
+        // console.log(e.touches[0].clientY)
         setDrawing(true);
         setPosition({
             x: parseInt(((e.touches == undefined) ? e.clientX : e.touches[0].clientX) - canvasOffset.x),

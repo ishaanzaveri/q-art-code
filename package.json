@@ -4,11 +4,11 @@
     "description": "Boilermake Project ",
     "main": "server.js",
     "scripts": {
-        "client-install": "cd client && npm install",
+        "client-install": "cd client && yarn install",
         "start": "node server.js",
         "server": "nodemon server.js",
         "client": " cd client && npm start client",
-        "dev": "concurrently \"npm run server \" \"npm run client \""
+        "dev": "concurrently \"yarn run server \" \"yarn run client \""
     },
     "repository": {
         "type": "git",
