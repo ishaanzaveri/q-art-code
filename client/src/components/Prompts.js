@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ImageGrid from './ImageGrid';
+import QRCode from "react-qr-code";
 
 export default function Prompts(param) {
   const [viewer, setViewer] = useState(param.name)
@@ -10,10 +11,10 @@ export default function Prompts(param) {
   const [isOpened, setIsOpened] = useState(false);
   const [showFinal, setShowFinal] = useState(false);
 
-  useEffect(() => {
-    setQrCode
-      (`http://api.qrserver.com/v1/create-qr-code/?data=${word}&size=${size}x${size}&charset-source="UTF-8"`);
-  }, [word, size]);
+  // useEffect(() => {
+  //   setQrCode
+  //     (`http://api.qrserver.com/v1/create-qr-code/?data=${word}&size=${size}x${size}&charset-source="UTF-8"`);
+  // }, [word, size]);
 
   function handleViewing(e) {
     e.preventDefault();
@@ -81,7 +82,8 @@ export default function Prompts(param) {
         </button>
 
       </div>
-      {isOpened && <img className="photo" src={qrCode} alt="" />}
+      {/* {isOpened && <img className="photo" src={qrCode} alt="" />} */}
+      {isOpened && <QRCode value={word} /> }
       <div className="finalIMG-display">
         {showFinal && <div className='photo'>
           <ImageGrid id={url} />
