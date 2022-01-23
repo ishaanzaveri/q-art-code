@@ -11,7 +11,24 @@ export default function Prompts(param) {
 
   function handleDeletion(e) {
     e.preventDefault();
-    alert("NOOOOOO")
+
+    fetch("api/qurl/" + param.id, {
+      method: "DELETE",
+    })
+    .then(response => {
+      response.clone().json()
+      console.log('JSON: ', response.json())
+      })
+      .then(data => {
+        param.updateList(data);
+        console.log('Success:' , data)
+      })
+      .catch((error) => {
+        
+        console.error('Error:' , error)
+        
+      })
+    
   }
 
   return (
