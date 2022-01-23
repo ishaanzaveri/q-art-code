@@ -4,12 +4,16 @@ import { useRef, useState } from 'react';
 import './DrawCanvas.css'
 import Board from './Board'
 import { useParams } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 
 function App(params) {
     const [title, changeTitle] = useState('')
     const ref = useRef()
 
+    const navigate = useNavigate();
+
     const url = useParams().id
+    console.log("url: " + url);
 
     useEffect(async () => {
         const obj = await (await fetch('/api/qurl/' + url)).json();
@@ -36,7 +40,7 @@ function App(params) {
                 "#999999", // grey
             ]} width='100%' />
 
-
+    
             <button onClick={() => {
                 var img = ref.current.export()
                 fetch('/api/qurl/submit', {
@@ -50,8 +54,11 @@ function App(params) {
                         'Content-Type': 'application/json'
                     }
                 }).then(res => console.log(res))
+                .then(navigate("/" + url + "/result"))
+                
                 // window.close()
             }} className='btn btn__primary btn__lg'>Submit</button>
+            
         </div>
     );
 }
