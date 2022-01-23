@@ -1,13 +1,16 @@
 const mongoose = require("mongoose");
 
 const urlSchema = new mongoose.Schema({
-    url : {
+    url: {
         type: "String",
-        required : true
-    }, 
-    question : {
+        required: true
+    },
+    question: {
         type: "String",
-        required : true
+        required: true
+    },
+    responses: {
+        type: []
     }
 })
 
