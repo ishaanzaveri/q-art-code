@@ -5,6 +5,7 @@ const imageSchema = require('./model/images');
 const db = require('config').get("db");
 const UUID = require('uuid-js');
 const req = require('express/lib/request');
+require('dotenv').config()
 
 const morgan = require('morgan')
 const cors = require('cors')
@@ -30,6 +31,6 @@ app.use("/api/qurl", qurlRouter);
 app.use('/api/images/', image_router)
 app.use('/', express.static('client/build'))
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
