@@ -84,7 +84,7 @@ export default function Prompts(param) {
 
       </div>
       {/* {isOpened && <img className="photo" src={qrCode} alt="" />} */}
-      {isOpened && <Link to={param.url + "/edit"}><QRCode value={word} /></Link> }
+      {isOpened && <Link to={param.url + "/edit"} target="_blank"><QRCode value={word} /></Link> }
       <div className="finalIMG-display">
         {showFinal && <div className='photo'>
           <ImageGrid id={url} />
