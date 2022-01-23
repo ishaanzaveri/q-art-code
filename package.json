@@ -5,7 +5,7 @@
     "main": "server.js",
     "scripts": {
         "client-install": "cd client && yarn install",
-        "start": "cd client && yarn build && cd ../ && node server.js",
+        "start": "node server.js",
         "server": "nodemon server.js",
         "client": " cd client && npm start client",
         "dev": "concurrently \"yarn run server \" \"yarn run client \""
