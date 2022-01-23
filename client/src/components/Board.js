@@ -66,7 +66,7 @@ const Board = forwardRef((props, ref) => {
             setColor(color);
         },
         export() {
-            return (canvasRef.current.toDataURL())
+            return (canvasRef.current.toDataURL('image/jpeg', 0.9).split(',')[1])
         }
     }))
 

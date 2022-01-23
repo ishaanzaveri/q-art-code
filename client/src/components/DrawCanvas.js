@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import './DrawCanvas.css'
 import Board from './Board'
 
-function App() {
+function App(params) {
     const [color, changeColor] = useState('#000')
     const ref = useRef()
 
@@ -27,8 +27,18 @@ function App() {
 
             <button onClick={() => {
                 var img = ref.current.export()
-
-                window.close()
+                fetch('/api/qurl/submit', {
+                    method: "POST",
+                    body: JSON.stringify({
+                        url: params.url,
+                        image_path: img
+                    }),
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => console.log(res))
+                // window.close()
             }} className='btn btn__primary btn__lg'>Submit</button>
         </div>
     );

@@ -24,24 +24,24 @@ function App() {
 
   return (
     <>
-    <div className="qartcode stack-large">
-      <h1>q-art-code</h1>
-      <NewQuestion />
-      <h2 id="list-heading">
-        Current
-      </h2>
-      <ul
-        role="list"
-        className="question-list stack-large stack-exception"
-        aria-labelledby="list-heading"
-      >
-        { }
-      </ul>
-    </div>
+      <div className="qartcode stack-large">
+        <h1>q-art-code</h1>
+        <NewQuestion />
+        <h2 id="list-heading">
+          Current
+        </h2>
+        <ul
+          role="list"
+          className="question-list stack-large stack-exception"
+          aria-labelledby="list-heading"
+        >
+          { }
+        </ul>
+      </div>
 
-    <DrawCanvas/>
-    <ImageGrid />
-    
+      <DrawCanvas url={"116eeb32-a914-4ba8-8c99-f6fb4f390bcb"} />
+      <ImageGrid />
+
     </>
   )
 }
