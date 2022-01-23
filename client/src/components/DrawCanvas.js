@@ -3,6 +3,7 @@ import { CirclePicker } from 'react-color';
 import { useRef, useState } from 'react';
 import './DrawCanvas.css'
 import Board from './Board'
+import { useParams } from 'react-router';
 
 function App(params) {
     const [color, changeColor] = useState('#000')
@@ -30,7 +31,7 @@ function App(params) {
                 fetch('/api/qurl/submit', {
                     method: "POST",
                     body: JSON.stringify({
-                        url: params.url,
+                        url: useParams().id,
                         image_path: img
                     }),
                     headers: {

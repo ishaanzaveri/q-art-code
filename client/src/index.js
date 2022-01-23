@@ -3,12 +3,14 @@ import ReactDOM, { render } from 'react-dom';
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
+  useParams
 } from "react-router-dom"
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import DrawCanvas from './components/DrawCanvas';
+import ImageGrid from './components/ImageGrid';
 
 require('react-dom');
 window.React2 = require('react');
@@ -19,7 +21,8 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="*" element={<DrawCanvas />} />
+      <Route path=":id" element={<DrawCanvas />} />
+      <Route path=":id/result" element={<ImageGrid />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById('root')

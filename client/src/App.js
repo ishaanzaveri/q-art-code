@@ -7,7 +7,7 @@ import ImageGrid from './components/ImageGrid';
 
 function App() {
 
-// just a comment
+  // just a comment
   const [questions, modifyQuestions] = useState([])
 
   useEffect(() => {
@@ -43,10 +43,8 @@ function App() {
         </ul>
       </div>
 
-      <div className="App">
-        <DrawCanvas url={"398d0596-0b3c-4502-80d5-409a91c9cf49"} />
-        {/* <ImageGrid url={"398d0596-0b3c-4502-80d5-409a91c9cf49"} /> */}
-      </div>
+      {/* <DrawCanvas url={"398d0596-0b3c-4502-80d5-409a91c9cf49"} /> */}
+      {/* <ImageGrid url={"398d0596-0b3c-4502-80d5-409a91c9cf49"} /> */}
     </>
   )
 }
