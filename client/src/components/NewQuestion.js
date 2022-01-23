@@ -23,6 +23,7 @@ function NewQuestion(param) {
       .then(response => response.json())
       .then(data => {
         param.updateList(data);
+        setNewQuestion("");
         console.log('Success:' , data)
       })
       .catch((error) => {
