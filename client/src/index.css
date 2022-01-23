@@ -222,3 +222,9 @@ body {
 .question-text:focus {
   box-shadow: inset 0 0 0 2px;
 }
+.photo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

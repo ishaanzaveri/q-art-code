@@ -18,8 +18,6 @@ function App() {
     modifyQuestions(questions)
   }
 
-
-
   return (
     <>
       <div className="qartcode stack-large">
