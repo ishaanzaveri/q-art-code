@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 function NewQuestion(param) {
@@ -6,8 +6,31 @@ function NewQuestion(param) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    alert(newQuestion)
-  }
+
+    const newQART = {
+      "question": newQuestion
+    }
+
+    //post new question
+   
+      fetch("/api/qurl", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newQART)
+      })
+      .then(response => response.json())
+      .then(data => {
+        param.updateList(data);
+        console.log('Success:' , data)
+        setNewQuestion("");
+      })
+      .catch((error) => {
+        console.error('Error:' , error)
+      })
+
+    }
 
   function handleChange(e) {
     e.preventDefault();

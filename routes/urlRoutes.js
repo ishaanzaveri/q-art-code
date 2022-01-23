@@ -15,15 +15,16 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     let newUrl = {
-        url: req.body.url,
+        url: UUID.create().toString(),
         question: req.body.question
     };
     try {
         await urlSchema.create(newUrl);
+        res.json(await urlSchema.find());
     } catch (e) {
         console.error(e.message);
     }
-    res.json(await urlSchema.find());
+
 })
 
 router.post('/submit', async (req, res) => {
@@ -57,4 +58,14 @@ router.post('/submit', async (req, res) => {
         .catch(err => res.status(500).send())
 })
 
+router.delete('/:id', async (req, res) => {
+    let currentId = req.params.id;
+    console.log(currentId);
+    try {
+        await urlSchema.deleteOne({ _id: currentId });
+        res.json(await urlSchema.find());
+    } catch (e) {
+        console.error(e.message);
+    }
+})
 module.exports = router

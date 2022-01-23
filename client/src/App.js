@@ -7,26 +7,24 @@ import ImageGrid from './components/ImageGrid';
 
 function App() {
 
-  // const questionList = param.questions.map(question => (
-  //   <Prompts
-  //     id={question.id}
-  //     name={question.name}
-  //     key={question.id}
-  //   />
-  // ));
 
-  const [questions, modifyQuestions] = useState()
+  const [questions, modifyQuestions] = useState([])
 
   useEffect(() => {
     fetch("/api/qurl").then(data => data.json()).then(data => modifyQuestions(data))
   }, [])
+
+  const updateList = (questions) => {
+    modifyQuestions(questions)
+  }
+
 
 
   return (
     <>
       <div className="qartcode stack-large">
         <h1>q-art-code</h1>
-        <NewQuestion />
+        <NewQuestion updateList={updateList} />
         <h2 id="list-heading">
           Current
         </h2>
@@ -35,13 +33,22 @@ function App() {
           className="question-list stack-large stack-exception"
           aria-labelledby="list-heading"
         >
-          { }
+          {questions.map(question => (
+            <Prompts
+              _id={question._id}
+              key={question._id}
+              name={question.question}
+              url={question.url}
+              updateList={updateList}
+            />
+          ))}
         </ul>
       </div>
 
-      <DrawCanvas url={"1d5316c5-3a32-4e46-8311-7868d27923aa"} />
-      {/* <ImageGrid url={"1d5316c5-3a32-4e46-8311-7868d27923aa"} /> */}
-
+      <div className="App">
+        <DrawCanvas url={"1d5316c5-3a32-4e46-8311-7868d27923aa"} />
+        {/* <ImageGrid url={"1d5316c5-3a32-4e46-8311-7868d27923aa"} /> */}
+      </div>
     </>
   )
 }
