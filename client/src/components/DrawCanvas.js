@@ -9,6 +9,8 @@ function App(params) {
     const [color, changeColor] = useState('#000')
     const ref = useRef()
 
+    const url = useParams().id
+
 
     return (
         <div className='DrawCanvas'>
@@ -31,7 +33,7 @@ function App(params) {
                 fetch('/api/qurl/submit', {
                     method: "POST",
                     body: JSON.stringify({
-                        url: useParams().id,
+                        url,
                         image_path: img
                     }),
                     headers: {
