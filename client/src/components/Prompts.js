@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-
 export default function Prompts(param) {
   const [viewer, setViewer] = useState(param.name)
   const [word, setWord] = useState("");
   const [size, setSize] = useState(200);
   const [qrCode, setQrCode] = useState("");
   const [isOpened, setIsOpened] = useState(false);
+  const [showFinal, setShowFinal] = useState(false);
 
   useEffect(() => {
 	setQrCode
@@ -41,7 +41,8 @@ export default function Prompts(param) {
 
   function handleComposite(e) {
     e.preventDefault();
-    alert("img")
+    setShowFinal(showFinal => !showFinal);
+    //alert("img")
   }
 
   return (
@@ -77,9 +78,9 @@ export default function Prompts(param) {
         </button>
 
       </div>
-      {isOpened && <img src={qrCode} alt="" />}
+      {isOpened && <img className="photo" src={qrCode} alt="" />}
       <div className="finalIMG-display">
-
+        {showFinal && <img className="photo" src={require('./defaultIMG.jpeg')} alt=""/>}
       </div>
     </li>
   );
