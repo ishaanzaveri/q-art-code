@@ -14,14 +14,11 @@ function App() {
     fetch("/api/qurl").then(data => data.json()).then(data => modifyQuestions(data))
   }, [])
 
-  const questionList = questions.map(question => (
-     <Prompts
-       id={question._id}
-       key={question._id}
-       name={question.question}
-       url={question.url}
-     />
-   ));
+  const updateList = (questions)=>{
+    modifyQuestions(questions)
+  }
+  
+  
 
 
 
@@ -29,7 +26,7 @@ function App() {
     <>
     <div className="qartcode stack-large">
       <h1>q-art-code</h1>
-      <NewQuestion />
+      <NewQuestion updateList={updateList}/>
       <h2 id="list-heading">
         Current
       </h2>
@@ -38,7 +35,14 @@ function App() {
         className="question-list stack-large stack-exception"
         aria-labelledby="list-heading"
       >
-      { questionList }
+      { questions.map(question => (
+      <Prompts
+        id={question._id}
+        key={question._id}
+        name={question.question}
+        url={question.url}
+      />
+    )) }
       </ul>
     </div>
 
