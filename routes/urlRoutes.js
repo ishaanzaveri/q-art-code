@@ -45,7 +45,7 @@ router.post('/submit', async (req, res) => {
         .then(response => response.json())
         // .then(res => { console.log(res); res.send(200) })
         .then(async url => {
-            console.log(url.data.url)
+            console.log(url.data.link)
             await urlSchema.findOneAndUpdate(
                 { url: req.body.url }, {
                 $push: {

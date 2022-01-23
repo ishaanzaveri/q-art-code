@@ -46,8 +46,8 @@ function App() {
       </div>
 
       <div className="App">
-        <DrawCanvas url={"1d5316c5-3a32-4e46-8311-7868d27923aa"} />
-        {/* <ImageGrid url={"1d5316c5-3a32-4e46-8311-7868d27923aa"} /> */}
+        <DrawCanvas url={"398d0596-0b3c-4502-80d5-409a91c9cf49"} />
+        {/* <ImageGrid url={"398d0596-0b3c-4502-80d5-409a91c9cf49"} /> */}
       </div>
     </>
   )
