@@ -13,6 +13,10 @@ router.get('/', async (req, res) => {
     res.send(await urlSchema.find());
 })
 
+router.get('/:id', async (req, res, next) => {
+    res.send(await urlSchema.findOne({ url: req.params.id }));
+})
+
 router.post('/', async (req, res) => {
     let newUrl = {
         url: UUID.create().toString(),

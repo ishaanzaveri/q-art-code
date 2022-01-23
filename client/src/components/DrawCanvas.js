@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useEffect } from 'react'
 import { CirclePicker } from 'react-color';
 import { useRef, useState } from 'react';
 import './DrawCanvas.css'
@@ -6,14 +6,23 @@ import Board from './Board'
 import { useParams } from 'react-router';
 
 function App(params) {
-    const [color, changeColor] = useState('#000')
+    const [title, changeTitle] = useState('')
     const ref = useRef()
 
     const url = useParams().id
 
+    useEffect(async () => {
+        const obj = await (await fetch('/api/qurl/' + url)).json();
+        console.log(obj)
+        changeTitle(obj.question)
+    }, [])
+
 
     return (
         <div className='DrawCanvas'>
+
+            <h1>{title}</h1>
+
             <Board ref={ref} />
 
             <CirclePicker onChangeComplete={(val) => ref.current.handleColor(val.hex)} colors={[
