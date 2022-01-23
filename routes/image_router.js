@@ -20,11 +20,11 @@ const template = `<!DOCTYPE html>
                 var img = new Image();
                 $(img)
                     .on("load", function () {
-                        const w = this.width;
+                        const w = this.width*.3;
                         console.log(w);
                         $(".container").append(
                             $(\`<div class="brick" style="width:\` + w + \`px"></div>\`).append(
-                                $(this).width("100%")
+                                $(this).width(w)
                             )
                         );
                     })
