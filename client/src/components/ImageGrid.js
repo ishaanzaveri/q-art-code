@@ -5,11 +5,13 @@ import { useParams } from 'react-router'
 import "./ImageGrid.css"
 
 export default (params) => {
-    const url = `/api/images/${useParams().id}`
+    const url = `http://localhost:3001/api/images/${params.id || useParams().id}`
     console.log(url)
 
 
     return (
-        <Iframe url={url} width='512px' height='512px' frameBorder={0} id="frame" />
+        <div className='iframe-container'>
+            <Iframe url={url} width='512px' height='512px' frameBorder={0} id="frame" />
+        </div>
     )
 }
