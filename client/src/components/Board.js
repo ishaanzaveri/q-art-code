@@ -20,6 +20,8 @@ const Board = forwardRef((props, ref) => {
         canvCtx.lineJoin = "round";
         canvCtx.lineCap = "round";
         canvCtx.lineWidth = size;
+        canvCtx.fillStyle = "white";
+        canvCtx.fillRect(0, 0, canv.width, canv.height);
         setCtx(canvCtx);
 
         let offset = canv.getBoundingClientRect();
