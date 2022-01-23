@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async(req, res) => {
     let newUrl = {
-        url : req.body.url,
+        url : UUID.create().toString(),
         question : req.body.question
     };
     try {
@@ -23,4 +23,13 @@ router.post('/', async(req, res) => {
     res.json(await urlSchema.find());
 })
 
+router.delete('/', async (req, res) => {
+    let currentId = req.body._id;
+    try {
+        await urlSchema.deleteOne({_id : currentId});
+        res.send(currentId + " is deleted");
+    } catch (e) {
+        console.error(e.message);
+    }
+})
 module.exports = router
