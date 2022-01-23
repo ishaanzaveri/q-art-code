@@ -20,7 +20,7 @@ export default function Prompts(param) {
   function handleViewing(e) {
     e.preventDefault();
     console.log(window.location + url);
-    setWord(window.location + url + "/edit");
+    setWord(window.location + url + "/#/edit");
     setIsOpened(wasOpened => !wasOpened);
     //alert(viewer)
   }
@@ -84,7 +84,7 @@ export default function Prompts(param) {
 
       </div>
       {/* {isOpened && <img className="photo" src={qrCode} alt="" />} */}
-      {isOpened && <Link to={param.url + "/edit"} target="_blank"><QRCode value={word} /></Link> }
+      {isOpened && <Link to={param.url + "/edit"} target="_blank"><QRCode value={word} /></Link>}
       <div className="finalIMG-display">
         {showFinal && <div className='photo'>
           <ImageGrid id={url} />
