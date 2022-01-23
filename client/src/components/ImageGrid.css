@@ -1,3 +1,10 @@
 #frame {
     border: 1px black solid !important;
+    flex-shrink: 0;
+}
+
+.iframe-container {
+    display: flex; /* Magic begins */
+    justify-content: center; /* Center contents */
+    margin: 0 auto;
 }

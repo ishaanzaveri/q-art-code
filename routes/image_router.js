@@ -14,7 +14,7 @@ const template = `<!DOCTYPE html>
         <script src="./freewall.js"></script>
     </head>
     <body>
-        <div id="freewall" class="free-wall container"></div>
+        <div id="freewall" class="free-wall container" style="height: 100%"></div>
         <script>
             function load_img(url) {
                 var img = new Image();

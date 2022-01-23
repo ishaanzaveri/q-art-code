@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ImageGrid from './ImageGrid';
 
 export default function Prompts(param) {
   const [viewer, setViewer] = useState(param.name)
@@ -10,9 +11,9 @@ export default function Prompts(param) {
   const [showFinal, setShowFinal] = useState(false);
 
   useEffect(() => {
-	setQrCode
-(`http://api.qrserver.com/v1/create-qr-code/?data=${word}&size=${size}x${size}&charset-source="UTF-8"`);
-}, [word, size]);
+    setQrCode
+      (`http://api.qrserver.com/v1/create-qr-code/?data=${word}&size=${size}x${size}&charset-source="UTF-8"`);
+  }, [word, size]);
 
   function handleViewing(e) {
     e.preventDefault();
@@ -28,14 +29,14 @@ export default function Prompts(param) {
     fetch("api/qurl/" + param._id, {
       method: "DELETE",
     })
-    .then(response => response.json())
+      .then(response => response.json())
       .then(data => {
         param.updateList(data);
-        console.log('Success:' , data)
+        console.log('Success:', data)
       })
       .catch((error) => {
 
-        console.error('Error:' , error)
+        console.error('Error:', error)
 
       })
 
@@ -82,7 +83,9 @@ export default function Prompts(param) {
       </div>
       {isOpened && <img className="photo" src={qrCode} alt="" />}
       <div className="finalIMG-display">
-        {showFinal && <img className="photo" src={require('./defaultIMG.jpeg')} alt=""/>}
+        {showFinal && <div className='photo'>
+          <ImageGrid id={url} />
+        </div>}
       </div>
     </li>
   );
