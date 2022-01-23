@@ -1,19 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM, { render } from 'react-dom';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom"
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-// const DATA = [
-//   { id: "question-0", name: "What's a New Years resolution of yours?" },
-//   { id: "question-1", name: "Draw your best bird!" },
-// ];
+import DrawCanvas from './components/DrawCanvas';
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="*" element={<DrawCanvas />} />
+    </Routes>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
