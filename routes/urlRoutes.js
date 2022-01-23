@@ -23,8 +23,9 @@ router.post('/', async(req, res) => {
     res.json(await urlSchema.find());
 })
 
-router.delete('/', async (req, res) => {
-    let currentId = req.body._id;
+router.delete('/:id', async (req, res) => {
+    let currentId = req.params.id;
+    console.log(currentId);
     try {
         await urlSchema.deleteOne({_id : currentId});
         res.send(currentId + " is deleted");
