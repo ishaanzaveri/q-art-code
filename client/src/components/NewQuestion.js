@@ -23,8 +23,8 @@ function NewQuestion(param) {
       .then(response => response.json())
       .then(data => {
         param.updateList(data);
-        setNewQuestion("");
         console.log('Success:' , data)
+        setNewQuestion("");
       })
       .catch((error) => {
         console.error('Error:' , error)

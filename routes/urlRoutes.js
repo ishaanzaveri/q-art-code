@@ -17,10 +17,11 @@ router.post('/', async(req, res) => {
     };
     try {
         await urlSchema.create(newUrl);
+        res.json(await urlSchema.find());
     } catch (e) {
         console.error(e.message);
     }
-    res.json(await urlSchema.find());
+    
 })
 
 router.delete('/:id', async (req, res) => {
@@ -28,7 +29,7 @@ router.delete('/:id', async (req, res) => {
     console.log(currentId);
     try {
         await urlSchema.deleteOne({_id : currentId});
-        res.send(currentId + " is deleted");
+        res.json(await urlSchema.find());
     } catch (e) {
         console.error(e.message);
     }

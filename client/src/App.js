@@ -20,8 +20,6 @@ function App() {
   
   
 
-
-
   return (
     <>
     <div className="qartcode stack-large">
@@ -37,10 +35,11 @@ function App() {
       >
       { questions.map(question => (
       <Prompts
-        id={question._id}
+        _id={question._id}
         key={question._id}
         name={question.question}
         url={question.url}
+        updateList={updateList}
       />
     )) }
       </ul>
