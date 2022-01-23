@@ -10,6 +10,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import DrawCanvas from './components/DrawCanvas';
 
+require('react-dom');
+window.React2 = require('react');
+console.log(window.React1 === window.React2);
+
 
 ReactDOM.render(
   <BrowserRouter>
