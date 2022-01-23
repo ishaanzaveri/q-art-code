@@ -35,10 +35,11 @@ const Board = forwardRef((props, ref) => {
     }, [size])
 
     function handleMouseDown(e) {
+        // console.log(((e.touches == undefined) ? e.clientX : e.touches[0].clientX), canvasOffset.x)
         setDrawing(true);
         setPosition({
-            x: parseInt((e.clientX || e.touches[0].clientX) - canvasOffset.x),
-            y: parseInt((e.clientY || e.touches[0].clientY) - canvasOffset.y),
+            x: parseInt(((e.touches == undefined) ? e.clientX : e.touches[0].clientX) - canvasOffset.x),
+            y: parseInt(((e.touches == undefined) ? e.clientY : e.touches[0].clientY) - canvasOffset.y),
         });
     }
     function handleMouseUp() {
@@ -46,8 +47,8 @@ const Board = forwardRef((props, ref) => {
     }
 
     function handleMouseMove(e) {
-        let mousex = (e.clientX || e.touches[0].clientX) - canvasOffset.x;
-        let mousey = (e.clientY || e.touches[0].clientY) - canvasOffset.y;
+        let mousex = ((e.touches == undefined) ? e.clientX : e.touches[0].clientX) - canvasOffset.x;
+        let mousey = ((e.touches == undefined) ? e.clientY : e.touches[0].clientY) - canvasOffset.y;
         if (drawing) {
             ctx.strokeStyle = color;
             ctx.beginPath();
