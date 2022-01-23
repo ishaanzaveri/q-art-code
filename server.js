@@ -28,6 +28,7 @@ const qurlRouter = require('./routes/urlRoutes');
 const image_router = require('./routes/image_router')
 app.use("/api/qurl", qurlRouter);
 app.use('/api/images/', image_router)
+app.use('/', express.static('client/build'))
 
 const port = 3001;
 

@@ -21,7 +21,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path=":id" element={<DrawCanvas />} />
+      <Route path=":id/edit" element={<DrawCanvas />} />
       <Route path=":id/result" element={<ImageGrid />} />
     </Routes>
   </BrowserRouter>,
